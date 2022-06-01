@@ -1,0 +1,6 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+Options -Multiviews
+RewriteRule ^$ Public/ [QSA,L]
+RewriteRule (.*) Public/$1 [QSA,L]
+</IfModule>

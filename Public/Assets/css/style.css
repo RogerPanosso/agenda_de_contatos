@@ -1,0 +1,31 @@
+body {
+	margin: 0!important;
+	padding: 0!important;
+	position: relative!important;
+	max-height: 100vh!important;
+}
+nav {
+	z-index: 1000!important;
+}
+nav ul li a:hover {
+	color: #3765fa!important;
+	transition: all ease .1s!important;
+	opacity: 1!important;
+}
+h3 small {
+	font-size: 14px!important;
+	font-weight: 500!important;
+}
+form label {
+	font-size: 16px!important;
+	font-weight: 478!important;
+	color: #101010!important;
+}
+form textarea {
+	resize: none!important;
+}
+form button {
+	padding: 10px!important;
+	width: 130px!important;
+	font-size: 17px!important;
+}
