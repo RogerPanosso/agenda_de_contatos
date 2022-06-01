@@ -1,4 +1,3 @@
-<img src="<?=BASE_URL;?>Public/Assets/imgs/logo.png" alt="Contatos" title="Contatos"/>
 <h3>Agenda de Contatos</h3>
 <hr>
 <p>Projeto desenvolvido para fins de estudos e para utilização prática diariamente contendo funcionalidades para manipular contatos em sua agenda bem como realizar <u>cadastros</u>, <u>edições</u>, <u>exclusões</u>, <u>envios de e-mail autenticados</u> e <u>geração de relatórios(PDFs) dinâmicos</u>.</p>
