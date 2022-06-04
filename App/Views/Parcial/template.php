@@ -46,6 +46,11 @@
 								</a>
 							</li>
 							<li class="nav-item">
+								<a class="nav-link" href="<?=BASE_URL;?>cidades" title="Cidades Cadastradas">
+									<span class="nav-link-text"><i class="fas fa-city"></i> Cidades Existentes</span>
+								</a>
+							</li>
+							<li class="nav-item">
 								<a class="nav-link" href="<?=BASE_URL;?>relatorio" title="Gerar Relatório">
 									<span class="nav-link-text"><i class="fas fa-list"></i> Gerar Relatório</span>
 								</a>

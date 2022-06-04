@@ -48,6 +48,23 @@
 
 		}
 
+		public function getCidadesAll() {
+
+			$array = array();
+
+			$query = "SELECT cidades.id, cidades.cidade, estados.estado FROM cidades INNER JOIN estados ON cidades.id_estado = estados.id ORDER BY cidades.cidade ASC";
+			$query = $this->pdo->query($query);
+
+			if($query->rowCount() > 0) {
+
+				$array = $query->fetchAll(\PDO::FETCH_ASSOC);
+
+			}
+
+			return $array;
+
+		}
+
 		public function getCidades($id_estado) {
 
 			$array = array();

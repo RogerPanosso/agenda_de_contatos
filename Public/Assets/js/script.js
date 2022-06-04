@@ -293,7 +293,7 @@ $(document).ready(function(){
 
 						}else if(json.return == "success") {
 
-							$("#result_mail").show("fast").html("<span><i class='fas fa-check'></i> E-Mail enviado com sucesso</span>");
+							$("#result_mail").show("fast").html("<span class='text-success'><i class='fas fa-check'></i> E-Mail enviado com sucesso</span>");
 
 						}else if(json.return == "erro") {
 
