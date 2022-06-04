@@ -41,6 +41,11 @@
 								</a>
 							</li>
 							<li class="nav-item">
+								<a class="nav-link" href="<?=BASE_URL;?>novacidade" title="Adicionar Nova Cidade">
+									<span class="nav-link-text"><i class="fas fa-city"></i> Nova Cidade</span>
+								</a>
+							</li>
+							<li class="nav-item">
 								<a class="nav-link" href="<?=BASE_URL;?>relatorio" title="Gerar Relatório">
 									<span class="nav-link-text"><i class="fas fa-list"></i> Gerar Relatório</span>
 								</a>

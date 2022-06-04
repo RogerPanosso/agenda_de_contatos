@@ -31,6 +31,7 @@ function getIdEstado(valor) {
 				if(json != "") {
 
 					let html = "";
+					html += "<option value='' selected='selected'>SELECIONE</option>";
 					for(let i in json) {
 						html += "<option value="+json[i].cidade+">"+json[i].cidade+"</option>";
 					}
@@ -309,6 +310,74 @@ $(document).ready(function(){
 						setTimeout(function(){
 							$("#result_mail").hide("slow");
 							document.querySelector("#form_mail").reset();
+						}, 5000);
+
+					},
+					error:function(response) {
+
+						console.log(response);
+
+					}
+				});
+			}
+		}
+	});
+
+	//manipulação em form de cadastro(Cidades)
+	$("#form_cidade").on("submit", function(event){
+		event.preventDefault();
+		let tipo_evento = event.type;
+		let elemento = event.target;
+		if(tipo_evento == "submit") {
+			let form = $("form")[0];
+			let formName = $("form")[0].name;
+			let formData = $("#form_cidade").serialize();
+			if(formData != "") {
+				$.ajax({
+					type:"POST",
+					url:base_url+"ajaxnovacidade/salvarCidade",
+					dataType:"json",
+					data:formData,
+					beforeSend:function() {
+
+						$("#result_nova_cidade").show("fast").html("<span>Cadastrando...</span>");
+
+					},
+					success:function(json) {
+
+						let html = "";
+						let color = "";
+
+						if(json.return == "dados null") {
+
+							window.alert("Por favor preencha todos os campos obrigatórios");
+
+						}else if(json.return == "success") {
+
+							html += "<i class='fas fa-check'></i> Cidade Cadastrada com Sucesso";
+							color += "text-success";
+
+							setTimeout(function(){
+								document.querySelector("#form_cidade").reset();
+							}, 2000);
+
+						}else if(json.return == "exist") {
+
+							html += "<i class='fas fa-info'></i> Cidade já cadastrada diante estado";
+							html += "text-danger";
+
+						}
+
+						$("#result_nova_cidade").show("fast").html("<span class="+color+">"+html+"</span>");
+
+						$("#result_nova_cidade").animate({
+							opacity: 1,
+							fontSize: 18,
+							transition: ".1s"
+						}, "fast");
+
+						setTimeout(function(){
+							$("#result_nova_cidade").hide("slow");
 						}, 5000);
 
 					},

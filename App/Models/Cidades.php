@@ -11,6 +11,43 @@
 
 	class Cidades extends Model {
 
+		//método auxiliar private
+		private function verificaCadastro($id_estado, $cidade) {
+
+			$query = "SELECT * FROM cidades WHERE id_estado = :id_estado and cidade = :cidade";
+			$query = $this->pdo->prepare($query);
+			$query->bindValue(":id_estado", $id_estado);
+			$query->bindValue(":cidade", $cidade);
+			$query->execute();
+
+			if($query->rowCount() === 0) {
+
+				return true;
+
+			}else {
+
+				return false;
+
+			}
+
+		}
+
+		public function salvarCidade($id_estado, $cidade) {
+
+			if($this->verificaCadastro($id_estado,$cidade) == true) {
+
+				$query = "INSERT INTO cidades (id_estado,cidade) VALUES (:id_estado,:cidade)";
+				$query = $this->pdo->prepare($query);
+				$query->bindValue(":id_estado", $id_estado);
+				$query->bindValue(":cidade", $cidade);
+				$query->execute();
+
+				return true;
+
+			}
+
+		}
+
 		public function getCidades($id_estado) {
 
 			$array = array();
